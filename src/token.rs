@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use crate::UPOS;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, Hash, PartialEq, Eq)]
 pub enum TokenID {
     /// The standard, single index.
     Single(usize),
