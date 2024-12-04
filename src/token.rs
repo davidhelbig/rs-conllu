@@ -166,6 +166,7 @@ impl TokenBuilder {
     }
 }
 
+/// A head-relation pair, used in the `deps` field of [Token]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Dep {
     /// The head of the relation.
