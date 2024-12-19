@@ -78,7 +78,7 @@ pub fn parse_file(file: File) -> Doc<BufReader<File>> {
 /// });
 /// ```
 pub fn parse_token(line: &str) -> Result<Token, ParseErrorType> {
-    let mut fields_iter = line.split(|c| c == '\t');
+    let mut fields_iter = line.split('\t');
 
     let id = fields_iter
         .next()
@@ -368,7 +368,8 @@ mod test {
 
     #[test]
     fn test_token_parse() {
-        let line = "2	Ein	ein	DET	DT	Case=Nom|Definite=Ind|Gender=Masc|Number=Sing|Person=3	3	det	_	_";
+        let line =
+            "2	Ein	ein	DET	DT	Case=Nom|Definite=Ind|Gender=Masc|Number=Sing|Person=3	3	det	_	_";
 
         let features = HashMap::from([
             ("Case".to_string(), "Nom".to_string()),
