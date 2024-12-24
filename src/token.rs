@@ -75,7 +75,6 @@ impl Token {
 ///     .build();
 ///
 /// ```
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct TokenBuilder {
     id: TokenID,
     form: String,
