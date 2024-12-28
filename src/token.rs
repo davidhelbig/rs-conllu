@@ -2,7 +2,11 @@ use std::collections::HashMap;
 
 use crate::UPOS;
 
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub enum TokenID {
     /// The standard, single index.
     Single(usize),
@@ -29,6 +33,7 @@ type Features = HashMap<String, String>;
 /// which can be instantiated via the [builder](Token::builder) method.
 ///
 #[derive(Debug, Clone, PartialEq, Eq)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Token {
     /// The id of the token within the sentence.
     pub id: TokenID,
@@ -167,6 +172,7 @@ impl TokenBuilder {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Dep {
     /// The head of the relation.
     pub head: TokenID,

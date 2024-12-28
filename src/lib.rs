@@ -39,6 +39,9 @@ pub use token::{Dep, Token, TokenID};
 
 pub use parsers::{parse_file, parse_sentence, parse_token};
 
+#[cfg(feature = "serde")]
+pub use serde::{Deserialize, Serialize};
+
 pub struct Feature<'a>(pub &'a str, pub &'a str);
 
 #[derive(Debug, PartialEq, Eq)]
@@ -54,7 +57,8 @@ impl Error for ParseUposError {}
 
 /// The set of Universal POS tags according
 /// to [UD version 2](https://universaldependencies.org/u/pos/index.html).
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, derive_more::Display)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub enum UPOS {
     ADJ,
     ADP,
@@ -104,6 +108,7 @@ impl FromStr for UPOS {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Sentence {
     pub meta: Vec<String>,
     pub tokens: Vec<Token>,
