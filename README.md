@@ -21,7 +21,7 @@ for sentence in doc {
 ## Features
 
 - Tested on version 2.11 UD treebanks
-- Handles different types of token ids (single, range, suboordinate)
+- Handles different types of token ids (single, range, empty)
 
 ## Limitations
 
