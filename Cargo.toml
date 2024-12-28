@@ -4,6 +4,9 @@ description = "A parser for the CoNLL-U format of the Universal Dependencies pro
 version = "0.2.1"
 edition = "2021"
 license = "MIT OR Apache-2.0"
+repository = "https://github.com/davidhelbig/rs-conllu"
+keywords = ["nlp"]
+categories = ["parser-implementations", "text-processing", "science"]
 
 [features]
 serde = ["dep:serde"]
@@ -12,8 +15,8 @@ serde = ["dep:serde"]
 
 [dependencies]
 serde = { version = "1.0.216", features = ["derive"], optional = true}
-
 clap = { version = "4.1.8", features = ["derive"] }
 thiserror = "1.0.40"
 walkdir = "2.3.2"
 derive_more = { version = "1.0.0", features = ["display"] }
+
